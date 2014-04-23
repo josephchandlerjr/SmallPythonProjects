@@ -15,4 +15,4 @@ from math import factorial
 
 n = factorial(100)
 res = sum([int(x) for x in str(n)])
-print 'the sum of the digtis in the number 100! is {}'.format(res)
+print 'the sum of the digits in the number 100! is {}'.format(res)

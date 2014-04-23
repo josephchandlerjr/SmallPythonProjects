@@ -103,15 +103,6 @@ def number_of_factors(n):
     return res
 
 
-def prime_generator2(stop):
-    """
-    prime_generator2(stop)
-    Generator of primes up to but not including the
-    value of `stop`. 
-    Uses Sieve of Atkin.
-    """
-    pass
-
 def multiplicity(p,n):
     """
     find_multiplicity(p,n)
