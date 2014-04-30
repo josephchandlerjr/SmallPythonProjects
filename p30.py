@@ -22,7 +22,6 @@ Find the sum of all the numbers that can be written as the sum of fifth powers o
 # the left side grows exponentially while the right side grows linearly
 
 
-from itertools import combinations
 from itertools import combinations_with_replacement as c
 
 test = lambda n: (10**n - 1)/9**5 
@@ -34,32 +33,38 @@ def find_upper_bound(power):
     return n
 
 upper_bound = find_upper_bound(5)
-print( upper_bound)
+
+def find_upper_bound2(power):
+    n = 1
+    while test(n) < n:
+        n+=1
+    return n*9**5
+
+
+upper2 = find_upper_bound2(5)
+
+
 
 # check all combinations of 7 digit numbers
 
 def main():
-    count = 0
-    winners = set()
+    res = -1 
     for num_length in range(1,upper_bound+1):    
-        combos = set(combinations(list(range(10))*num_length,num_length))
-        #combos = c(range(10),num_length)
+        combos = c(range(10),num_length)
         for combo in combos:
             total = sum([x**5 for x in combo])
-            number = int("".join(map(str,combo)))
-            if total == number: 
-                winners.add(number)
-    print(winners)
-    return sum(winners)
+            if sorted([x for x in str(total)]) == sorted(map(str,combo)):
+                res+=total
+    return res
 
-print(main())
 
-a = """combos = set(combinations(list(range(10))*4,4))
-combos2 = c(range(10),4)
-        
-print(sorted(combos))
-print(sorted(combos2))
-"""
+
+if __name__ == '__main__':
+    from time import time
+    t1 = time()
+    result = main()
+    print('Found {} in {:.2f} seconds'.format(result,time()-t1))
+
 
 
 
