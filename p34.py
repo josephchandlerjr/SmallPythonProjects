@@ -17,28 +17,37 @@ Note: as 1! = 1 and 2! = 2 are not sums they are not included.
 # upperbound is 7 digits long
 # 7*9! = 2540160 so that could be an upper bound
 # but also 1! + 6 * 9! = 2177280 so so 1999999 > sum of it's factorials
-# lets use 1999999 as our upper bound
+# which is not a factorion but you can see that we've entered the realm of number > sum of factorial of digits
+# the next highest sum of factorialis is 1999998 = 1854721 
+# lets use 1854721 as our upper bound
 
 from math import factorial as f
 
-upper_bound = 2000000
-factorials = {str(n):f(n) for n in range(10)}
+upper_bound = 1857421
+factorials = {n:f(n) for n in range(10)}
 
 def sum_of_factorials(n,cache={}):
     string = str(n) 
+    length = len(string)
     h = tuple(sorted(string))
     try:
         return cache[h]
     except KeyError:
-        cache[h] = sum([factorials[x] for x in string])
-        return cache[h] 
-
+        total = 0
+        if n == 40584: print(n)
+        while n > 0:
+            if n == 40584: print(n)
+            x = n % 10
+            total += factorials[x]
+            n = n//10
+        cache[h] = total
+        return total
 
 def main():
     result = 0
-    for n in range(3,upper_bound):
+    for n in range(3,upper_bound+1):
         if sum_of_factorials(n) == n:
-            #print(n,sum_of_factorials(n))
+            print(n,sum_of_factorials(n))
             result += n 
     return result 
 

@@ -7,7 +7,7 @@
 #Find the largest palindrome made from the product of two 3-digit numbers.
 
 
-three_digit_numbers = range(1,999)
+three_digit_numbers = range(100,1000)
 
 def ispalindrome(n):
     if not n:
@@ -19,7 +19,9 @@ def ispalindrome(n):
         else:
             return False
 
-print max([x*y for x in three_digit_numbers for y in three_digit_numbers if ispalindrome(x*y)])
+
+
+print(max([x*y for x in three_digit_numbers for y in three_digit_numbers if x>=y if ispalindrome(x*y)]))
 
 
 

@@ -29,7 +29,7 @@ for n in fibs:
         if n%2 == 0:
             s+= n
     else:
-        print s
+        print(s)
         break
 
 

@@ -8,7 +8,7 @@ def factor(n):
     """
     if n == 0:
         return 0
-    factors = [(i,n/i) for i in range(1,int(n**0.5)+1) if n%i == 0]
+    factors = [(i,n//i) for i in range(1,int(n**0.5)+1) if n%i == 0]
     res = set()
     for fact1, fact2 in factors:
         res.add(fact1); res.add(fact2)
@@ -37,7 +37,7 @@ def timer(f):
         t1 = time()
         res = f(*args)
         time_elapsed = time()-t1
-        print '%s completed in time %f' %(f.__name__, time_elapsed)
+        print('%s completed in time %f' %(f.__name__, time_elapsed))
         return res 
     return _f
 
@@ -68,7 +68,7 @@ def prime_factors(n):
     while p*p <= n:
         while n % p == 0:
             primes.append(p)
-            n /= p
+            n //= p
         p += 1
     if n > 1:
         primes.append(n)
@@ -134,6 +134,23 @@ def memoizer(f):
             return cache[args] 
 
     return _f
+
+def decrement_pandigital(n):
+    string = str(n)  
+    to_swap = 0
+    for i in range(len(string)-1,0,-1):
+        if string[i-1] > string[i] and string[i-1] != '1':
+            to_swap = i-1
+            break
+    msd = string[:to_swap]
+    lsd = "".join(reversed(sorted(string[to_swap+1:])))
+    digit = string[to_swap]
+    for other_digit in lsd:
+        if digit > other_digit:
+            digit,lsd = other_digit, lsd.replace(other_digit,digit)
+            break                
+    return  msd+digit+lsd
+
     
 if __name__ == '__main__':   
     from primes import primes

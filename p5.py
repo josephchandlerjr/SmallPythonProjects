@@ -7,33 +7,16 @@
 #divisible by all of the numbers from 1 to 20?
 
 
-def n_gen(start=1, step=1):
-    n = start 
+def main():
+    divisors =(11,12,13,14,15,16,17,18,19,20)
+    n = 40
     while True:
-        yield n
-        n += step
+        for i in divisors:
+            if n % i != 0: 
+                n += 20
+                break
+            if i == 20:
+                return n
 
-def divisible(n,numbers):
-    for i in numbers:
-        if n % i <> 0: 
-            return False
-    return True
-
-
-def smallest_multiple(upper):
-    """ finds smallest number that can be divided evenly into
-        all integers from 1 to upper inclusive
-    """
-    if upper <= 1:
-        return upper
-    else:
-        start = upper
-        step = 2
-        gen = n_gen(start, upper)
-    numbers = range(1,20)
-    for n in gen:
-        if divisible(n,numbers):
-            return n 
-
-print smallest_multiple(20) 
+print(main())
 
