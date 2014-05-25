@@ -1,12 +1,13 @@
-def myzip(*args):
-    iters = list(map(iter,args))
-    print(iters is False)
-    while iters: 
-        res = [next(i) for i in iters]
-        print(iters,iters==True)
-        yield tuple(res)
+class Test:
+    def setAttr(self,x):
+        self.attr = x
 
 
-print(list(myzip()))
+t = Test()
 
 
+print(t)
+t.setAttr(1)
+print(t.attr)
+Test.setAttr(t,44)
+print(t.attr)
