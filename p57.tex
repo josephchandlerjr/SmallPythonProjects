@@ -1,0 +1,48 @@
+\documentclass{article}
+\begin{document}
+\begin{flushleft}
+\emph{Problem}:
+
+Square root convergents
+Problem 57
+
+It is possible to show that the square root of two can be expressed as an infinite continued fraction.
+In the first one-thousand expansions, how many fractions contain a numerator with more digits than denominator?
+
+
+\emph{Solution}:
+
+The $\sqrt{2}$ can be expressed as 
+
+\[ \sqrt{2} = 1 + \frac{1}{1 + \sqrt{2}} \approx  1 + \frac{1}{2} \] 
+
+Call this expansion level 0.
+This can be expanded again through recursion an arbitrary number of times
+
+\[ \sqrt{2} = 1 + \frac{1}{2 + \frac{1}{\sqrt{2}}} \approx  1 + \frac{1}{2 + \frac{1}{2}} \]
+
+Call this expansion level 1.
+The point being that the greater the number of expansions, the closer the approximation of $\sqrt{2}$. 
+Now let \emph{n} be our expansion level, let \emph{f(n)} be our function that returns the approximation
+of $\sqrt{2}$ at a given level of expansion.
+
+Now notice that at the deepest level of our continued fraction we are simply calculating 
+
+\[\frac{1}{2+\frac{1}{2}}\]
+
+Let's define another subroutine \emph{g(x)} 
+
+\[g(x)=\frac{1}{2+x}\]
+
+At the next level up $n-1,n>0$ we calculate
+
+\[g \circ g(\frac{1}{2})\]
+
+The insight I am trying to convey here is that for any exansion lebel \emph{n}, the value approximation can be expressed as
+\[ f(n) = 1 + g^{\circ n}(\frac{1}{2}) \]
+
+
+With this intuition, coding up a solution becomes trivial.
+
+\end{flushleft}
+\end{document}
