@@ -26,7 +26,7 @@ There are exactly ten ways of selecting three from five, 12345:
 #1 4 6 4 1 
 #
 
-def main():
+def solve():
     row = [] 
     count = 0
     for n in range(1,101):
@@ -45,4 +45,4 @@ def main():
 
 if __name__ == '__main__':
     from lib.timer import best_time
-    print(best_time(main))
+    print(best_time(solve))

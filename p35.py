@@ -29,7 +29,7 @@ def rotations(digits):
     for i in range(len(digits)):
         yield digits[i:]+digits[:i]
 
-def main():
+def solve():
     N = [None,False] + [True]*999999             # mark all primes
     for i in range(1000001):
         if N[i]:
@@ -47,4 +47,4 @@ def main():
 if __name__=='__main__':
     from time import time
     t1 = time()
-    print('Found {} in {:.2f} miliseconds'.format(main(),(time()-t1)*1000))
+    print('Found {} in {:.2f} miliseconds'.format(solve(),(time()-t1)*1000))

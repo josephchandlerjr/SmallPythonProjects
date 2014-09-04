@@ -42,7 +42,7 @@ def reverseNumber(n):
     return int("".join(reversed(str(n))))
 
 
-def main():
+def solve():
     count = 0
     for i in range(1,10000):
         num = i
@@ -54,4 +54,5 @@ def main():
             
     return 9999-count
 
-print(best_time(main))
+if __name__=='__main__':
+    print(best_time(solve))

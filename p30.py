@@ -47,7 +47,7 @@ upper2 = find_upper_bound2(5)
 
 # check all combinations of 7 digit numbers
 
-def main():
+def solve():
     res = -1 
     for num_length in range(1,upper_bound+1):    
         combos = c(range(10),num_length)
@@ -60,10 +60,7 @@ def main():
 
 
 if __name__ == '__main__':
-    from time import time
-    t1 = time()
-    result = main()
-    print('Found {} in {:.2f} seconds'.format(result,time()-t1))
+    print(solve())
 
 
 

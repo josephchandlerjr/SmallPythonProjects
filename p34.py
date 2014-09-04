@@ -43,15 +43,14 @@ def sum_of_factorials(n,cache={}):
         cache[h] = total
         return total
 
-def main():
+def solve():
     result = 0
     for n in range(3,upper_bound+1):
         if sum_of_factorials(n) == n:
-            print(n,sum_of_factorials(n))
             result += n 
     return result 
 
 if __name__=='__main__':
     from time import time
     t1 = time()
-    print('Found {} in {:.2f} seconds.'.format(main(),time()-t1))
+    print('Found {} in {:.2f} seconds.'.format(solve(),time()-t1))

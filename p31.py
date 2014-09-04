@@ -1,4 +1,3 @@
-#! /usr/bin/env python3
 """
 Coin sums
 Problem 31
@@ -121,7 +120,7 @@ def brute_force_solution():
                                    
     return count
 
-
+solve = dynamic_solution
 
 if __name__ == '__main__':
     from time import time

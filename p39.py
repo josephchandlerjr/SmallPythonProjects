@@ -22,6 +22,10 @@ for a in range(1,1000):
                 if int(c) == c:
                     P[a+b+c]+=1
 
-print(max(P.keys(),key=lambda x: P[x]))
+def solve():
+    return max(P.keys(),key=lambda x: P[x])
+
+if __name__ == '__main__':
+    print(solve())
 
 

@@ -1,5 +1,4 @@
 """
-
 Goldbach's other conjecture
 Problem 46
 
@@ -63,7 +62,7 @@ def search_primes(odd,prime_list):
     return False
 
 
-def main():
+def solve():
     prime = prime_generator() 
     prime_list = []
     prime_list.append(next(prime))
@@ -78,4 +77,4 @@ def main():
 
 if __name__=="__main__":
     from lib import timer
-    print(timer.best_time(main))
+    print(timer.best_time(solve))

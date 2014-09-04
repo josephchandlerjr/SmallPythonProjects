@@ -1,32 +1,31 @@
-#! /usr/bin/env python3
-# _*_ encoding: UTF-8 _*_
-#
-#100-digit Fibonacci number
-#Problem 25
-#
-#The Fibonacci sequence is defined by the recurrence relation:
-#
-#Fn = Fn−1 + Fn−2, where F1 = 1 and F2 = 1.
-#
-#Hence the first 12 terms will be:
-#
-#F1 = 1
-#F2 = 1
-#F3 = 2
-#F4 = 3
-#F5 = 5
-#F6 = 8
-#F7 = 13
-#F8 = 21
-#F9 = 34
-#F10 = 55
-#F11 = 89
-#F12 = 144
-#
-#The 12th term, F12, is the first term to contain three digits.
-#
-#What is the first term in the Fibonacci sequence to contain 1000 digits?
+"""
+1000-digit Fibonacci number
+Problem 25
 
+The Fibonacci sequence is defined by the recurrence relation:
+
+        Fn = Fn−1 + Fn−2, where F1 = 1 and F2 = 1.
+
+        Hence the first 12 terms will be:
+
+            F1 = 1
+            F2 = 1
+            F3 = 2
+            F4 = 3
+            F5 = 5
+            F6 = 8
+            F7 = 13
+            F8 = 21
+            F9 = 34
+            F10 = 55
+            F11 = 89
+            F12 = 144
+
+        The 12th term, F12, is the first term to contain three digits.
+
+        What is the first term in the Fibonacci sequence to contain 1000 digits?
+
+"""
 
 
 def fib():
@@ -41,7 +40,7 @@ def fib():
 
 fib = fib()
 
-def main():
+def solve():
     i = 12
     while True:
         if len(str(fib(i))) > 999:
@@ -49,11 +48,6 @@ def main():
         i+=1
 
 if __name__=='__main__':
-    from time import time
-    t1 = time()
-    result = main()
-    t2 = time()
-    print('Found {} in {:.2f} seconds.'.format(result,t2-t1))    
-
+    print(solve())
 
 

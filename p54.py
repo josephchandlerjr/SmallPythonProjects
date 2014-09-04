@@ -118,7 +118,7 @@ class Hand:
             return (6,res3,res2)
         return False
 
-def main():
+def solve():
     count = 0
     for line in open('lib/poker.txt','r'):
         line = line.strip().split()
@@ -131,6 +131,6 @@ def main():
 
 if __name__ == '__main__':
     from lib.timer import best_time
-    print(best_time(main))
+    print(best_time(solve))
 
 

@@ -22,9 +22,15 @@ def mybin():
     def f(n):
         return tmp(n)[2:]
     return f
-bin = mybin()
-total = 0
-for n in range(1000001):
-    if all(map(is_palindrome,(str(n),bin(n)))):
-        total += n
-print(total)
+
+def solve():
+    bin = mybin()
+    total = 0
+    for n in range(1000001):
+        if all(map(is_palindrome,(str(n),bin(n)))):
+            total += n
+    return total
+
+if __name__ == '__main__':
+    print(solve())
+

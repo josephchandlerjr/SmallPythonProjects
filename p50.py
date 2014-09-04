@@ -24,7 +24,7 @@ def prime_gen(stop=10**6):
                 P[i+i::i] = [False]*((stop-i)//i)
 
 
-def main():
+def solve():
     # create list of sums where prime_sum[i] = sum from first prime up to prime number i
     # example prime_sum[2] = 2 prime_sum[3] = 5 prime_sum[5] = 10 ...
     prime_sum =  [0]
@@ -51,4 +51,4 @@ def main():
 
 if __name__=='__main__':
     from lib.timer import best_time
-    print(best_time(main,_reps=3))
+    print(best_time(solve,_reps=3))

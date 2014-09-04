@@ -97,7 +97,7 @@ def is_candidate(n):
         return True
     return False
 
-def main():
+def solve():
     prime_groups, set_groups= primes_by_length()
     for g in range(1,7):
         for p in prime_groups[g]:
@@ -116,4 +116,4 @@ def main():
 
 if __name__ == '__main__':
     from lib.timer import best_time 
-    print(best_time(main))
+    print(best_time(solve))

@@ -30,7 +30,7 @@ def numGTdenom(n,d):
     return len(str(n)) > len(str(d))
 
 
-def main():
+def solve():
     count = 0
     n,d = 1,2
     for _ in range(1000):
@@ -40,5 +40,7 @@ def main():
     return count
 
 
-print(best_time(main))
+if __name__=='__main__':
+    print(best_time(solve))
+
 

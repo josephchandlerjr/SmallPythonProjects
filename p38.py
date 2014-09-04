@@ -165,12 +165,9 @@ def test_decrement():
     pn = PandigitalNumber(987654321)
     count_down(pn) 
 
-
+solve = main
 if __name__=='__main__':
     from lib.timer import best_time
-    #test_increment()
-    #test_decrement()
-    #print(is_pan_multiple2(918273645))
     print(best_time(main))
     print(best_time(main2))
 

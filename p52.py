@@ -28,7 +28,7 @@ def check(n,base):
             return False
     return True
 
-def main():
+def solve():
     n = 9 
     while True:
         base = _sorted(n)
@@ -36,6 +36,8 @@ def main():
             if check(n,base):
                 return n
         n+=9
-t = time()
-print(main())
-print(time()-t)
+
+if __name__ == '__main__':
+    t = time()
+    print(solve())
+    print(time()-t)

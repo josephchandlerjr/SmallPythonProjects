@@ -1,4 +1,3 @@
-#! /usr/bin/env python3
 """
 Pandigital products
 Problem 32
@@ -52,12 +51,10 @@ def outer():
     return sum(product for m in range(123,9877) for product in inner(m))
 
 
-def main2():
+def main():
     return outer()
 
+solve = main
+
 if __name__ == '__main__':
-    from time import time
-    t1=time()
-    print(main2())
-    print(time()-t1)
-    
+    print(solve())

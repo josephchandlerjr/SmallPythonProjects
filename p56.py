@@ -16,10 +16,13 @@ def digit_sum(n):
         n //= 10
     return sum
 
-max = 0
-for a in range(1,100):
-    for b in range(1,100):
-         sum = digit_sum(a**b)
-         if max < sum: max = sum
+def solve():
+    max = 0
+    for a in range(1,100):
+        for b in range(1,100):
+             sum = digit_sum(a**b)
+             if max < sum: max = sum
+    return max
 
-print(max)
+if __name__=='__main__':
+    print(solve())

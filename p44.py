@@ -26,7 +26,7 @@ def ispentagonal(n):
     x = sqrt(24*n+1)+1
     return x//6 == x/6 and x//6 > 0
 
-def main():
+def solve():
     P = [None] # P[i] = ith pentagonal number
 
     for n in pentagonal_generator():
@@ -36,5 +36,6 @@ def main():
                 return n-p
         P.append(n)
 
-print(best_time(main))
+if __name__ == '__main__':
+    print(best_time(solve))
 

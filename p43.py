@@ -56,7 +56,7 @@ def main():
                 total += int(n+candidate)
     return total
         
-
+solve = main
 if __name__=='__main__':
     from lib.timer import best_time
-    print(best_time(main))
+    print(best_time(solve))

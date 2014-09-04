@@ -78,10 +78,8 @@ def eloquent():
     return total           
 
                     
-
+solve = eloquent
 if __name__=='__main__':
     from lib.timer import best_time
     print(best_time(eloquent))
-
-
     print(best_time(brute))

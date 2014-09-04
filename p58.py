@@ -38,7 +38,7 @@ def isprime(n):
             return False
     return True
 
-def main():
+def solve():
     PN = 0 # total prime numbers found on diagonals
     DN = 1 # diagonals numbers 
     side = 1 
@@ -53,7 +53,8 @@ def main():
             return side 
 
 
-t1 = time() 
-print(main())
-print(time()-t1)
+if __name__=='__main__':
+    t1 = time() 
+    print(solve())
+    print(time()-t1)
 

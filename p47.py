@@ -15,7 +15,6 @@ The first two consecutive numbers to have two distinct prime factors are:
 
     Find the first four consecutive integers to have four distinct prime factors. What is the first of these numbers?
 
-
 """
 
 from time import time
@@ -24,7 +23,7 @@ from time import time
 def primes():
     """
     primes() 
-    a generator that yeilds an indefinite number of primes
+    a generator that yields an indefinite number of primes
     """
     D = {}
     q = 2
@@ -65,7 +64,7 @@ def main():
         last_prime = prime
 
 
-def main2():
+def solve():
     """
     cheating a bit and guessing at the upperbound but 
     much faster, even using 1million as upperbound and
@@ -85,6 +84,7 @@ def main2():
             return i-3
 
      
-t1 = time()
-print(main2())
-print (time()-t1)
+if __name__ == '__main__':
+    t1 = time()
+    print(solve())
+    print (time()-t1)

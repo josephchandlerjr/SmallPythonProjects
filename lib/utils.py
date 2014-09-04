@@ -53,7 +53,7 @@ def prime_generator(stop=100):
     for i,val in enumerate(numbers):
         if val is True:
             if i < stop**0.5+1:
-                numbers[i*2::i] = [False] * ((stop-1)/i - 1) 
+                numbers[i*2::i] = [False] * ((stop-1)//i - 1) 
             yield i
 
 def prime_factors(n):

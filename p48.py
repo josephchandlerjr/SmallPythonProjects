@@ -28,7 +28,7 @@ def just10mult(n,m):
 
 
 
-def main():
+def solve():
     total = 0
     mod = 10**10
     for n in range(1,1001):
@@ -40,4 +40,4 @@ def main():
 
 if __name__ == '__main__':
     from lib.timer import best_time
-    print(best_time(main,_reps=2))
+    print(best_time(solve,_reps=2))

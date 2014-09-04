@@ -1,4 +1,3 @@
-#! /usr/bin/env python3
 """
 Digit canceling fractions
 Problem 33
@@ -34,7 +33,7 @@ def cancel_digits(n,d):
         return False
 
 
-def main():
+def solve():
     numbers = list(range(10,100)) 
     result = Fraction(1)
     for i in range(len(numbers)):
@@ -48,8 +47,8 @@ def main():
                     if F == newF:
                         result *= F 
     
-    return result
+    return result.denominator
 if __name__ == '__main__':
-    print(main().denominator)
+    print(solve())
     
 

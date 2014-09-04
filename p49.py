@@ -40,7 +40,7 @@ def find_arithmetic_sequence3(D,node=None,difference=None):
                 return [key]
         
 
-def main():
+def solve():
     P = {}
     results = []
     prime_numbers = primes()
@@ -66,6 +66,6 @@ def main():
 
 if __name__ == '__main__':
     from lib.timer import best_time
-    print(best_time(main,_reps=2))
+    print(best_time(solve,_reps=2))
 
     

@@ -1,13 +1,15 @@
-#p5.py
-#
-#2520 is the smallest number that can be divided by each of the 
-#numbers from 1 to 10 without any remainder.
-#
-#What is the smallest positive number that is evenly 
-#divisible by all of the numbers from 1 to 20?
+"""
+Smallest multiple
+Problem 5
+
+2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+
+What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+
+"""
 
 
-def main():
+def solve():
     divisors =(11,12,13,14,15,16,17,18,19,20)
     n = 40
     while True:
@@ -18,5 +20,6 @@ def main():
             if i == 20:
                 return n
 
-print(main())
+if __name__ == '__main__':
+    print(solve())
 

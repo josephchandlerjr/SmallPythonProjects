@@ -33,11 +33,14 @@ def istriangle(n):
     return x == int(x) and x > 0
 
 
-for h in hexagonals():
-    if istriangle(h) and ispentagonal(h):
-        print(h)
-        break
+def solve():
+    for h in hexagonals():
+        if istriangle(h) and ispentagonal(h):
+            return h
+            
 
+if __name__ == '__main__':
+    print(solve())
 
 
 

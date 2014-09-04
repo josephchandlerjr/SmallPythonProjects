@@ -1,5 +1,3 @@
-#! /usr/bin/env python3
-# _*_ encoding: UTF-8  _*_
 """
 Quadratic primes
 Problem 27
@@ -52,7 +50,6 @@ def prime_generator(stop=100):
                 return numbers
 
 primes = prime_generator(1000)
-print(primes[7])
 def is_prime(n):
     """
     def isprime(n)
@@ -70,7 +67,7 @@ def is_prime(n):
 # in order for the coefficient on n**2 to be 1 the form must be (n+x)(n+y) so in
 # n**2 + an + b , a = x+y  and b = xy
 
-def main():
+def solve():
     longest = (0,0,0)
     for a in range(-1000,1001):
         for b in range(-1000,1001):
@@ -80,13 +77,11 @@ def main():
                 while is_prime(f(n)):
                     n +=1
                 longest = n > longest[0] and (n, a, b) or longest
-    return longest
+    max_num_primes, a, b = longest
+    product = a * b
+    return 'The maximum number of primes produced is {0}\n(a,b) = ({1},{2})\n a * b = {3}'.format(max_num_primes, a, b, product)
 
 
 
 if __name__ == '__main__':
-    from time import time
-    t1 = time()
-    result = main()
-    t2 = time()
-    print('Found result in {:.2f} seconds. \nThe maximum number of primes produced is {}. (a,b) = ({},{})'.format(t2-t1,*result))
+    print(solve())

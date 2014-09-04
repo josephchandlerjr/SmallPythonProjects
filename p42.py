@@ -23,7 +23,7 @@ def word_value(word):
 def triangle_number(n):
     return (n*(n+1))//2
 
-def main():
+def solve():
     max_value = 0
     for line in open('./lib/words.txt'):
         line = line.rstrip()
@@ -40,4 +40,4 @@ def main():
 
 if __name__=='__main__':
     from lib.timer import best_time
-    print(best_time(main))
+    print(best_time(solve))

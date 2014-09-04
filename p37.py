@@ -49,7 +49,7 @@ def is_truncatable(prime_number,primes):
     return True
 
 
-def main():     
+def solve():     
     count = 0
     total = 0
     primes = set() 
@@ -63,6 +63,6 @@ def main():
             #print(prime_number)
     return total
 
-if __name__=='__main__':
+if __name__== '__main__':
     from lib.timer import best_time
-    print(best_time(3,main))
+    print(best_time(solve))
