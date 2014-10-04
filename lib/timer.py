@@ -17,7 +17,7 @@ def total_time(func, *args, _reps=10, **kwargs):
     return '{0} found: {1} \n total time: {2:.5f} seconds'.format(name,result,total_time)
 
 
-def best_time(func, *args, _reps=10, **kwargs):
+def best_time(func, *args, _reps=2, **kwargs):
     best_time = 2**32 
     name = func.__name__
     for _ in range(_reps):

@@ -1,8 +1,23 @@
-
+#!/usr/bin/env python3
 import os, subprocess, glob
+import queue, threading
 from tkinter import *
 from lib.timer import best_time
 from tkinter.messagebox import askokcancel
+
+
+def threadwatcher(widget):
+    try:
+        func = threadq.get(block=False)
+    except queue.Empty:
+        pass 
+    else:
+        func()
+
+    widget.after(1000, lambda: threadwatcher(widget))
+
+def displayanswer(widget, answer):
+    widget.config(text='Solving. \n This may take a few seconds so hang in there.\n'+answer)
 
 class Quitter(Frame):
     def __init__(self, parent=None):
@@ -15,14 +30,23 @@ class Quitter(Frame):
         ans = askokcancel('Verify exit', "Really quit?")
         if ans: Frame.quit(self)
 
+def solveinthread(widget, func):
+    answer = best_time(func)
+    threadq.put(lambda:displayanswer(widget, answer))
+
 
 def solve(module):
-    module = module[:module.find('.')]
-    mod = __import__(module)
-    #top = Toplevel()
-    #Label(top, text='Solving, this may take a few seconds\n').pack()
-    answer =mod.solve()
-    print(answer)
+    if askokcancel('About to solve', 'This will reveal the answer. Are you sure?'):
+        top = Toplevel()
+        lbl = Label(top, text='Solving. \n This may take a few seconds so hang in there.')
+        lbl.pack()
+        top.update()
+        module = module[:module.find('.')]
+        print('importing mod')
+        mod = __import__(module)
+        thread = threading.Thread(target=solveinthread, args = (lbl, mod.solve))
+        thread.start()
+        print('solving in another thread')
     
 
 def edit(module):
@@ -37,7 +61,10 @@ def view(module):
 
 
 if __name__ == '__main__':
+
+    threadq = queue.Queue(maxsize=0)
     root = Tk()
+    threadwatcher(root)
     root.title("Euler's little helper")
     Label(root,text='Solved Problems').pack()
     problems_found = glob.glob('p[0-9]*py')
