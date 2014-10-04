@@ -21,10 +21,10 @@ def fib_gen():
         current,last = current+last, current
         yield current
 
-fibs = fib_gen()
 
 
 def solve():
+    fibs = fib_gen()
     s = 0
     for n in fibs:
         if n <= limit:

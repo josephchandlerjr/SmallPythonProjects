@@ -32,6 +32,7 @@ class Quitter(Frame):
 
 def solveinthread(widget, func):
     answer = best_time(func)
+    print(answer)
     threadq.put(lambda:displayanswer(widget, answer))
 
 
@@ -42,12 +43,9 @@ def solve(module):
         lbl.pack()
         top.update()
         module = module[:module.find('.')]
-        print('importing mod')
         mod = __import__(module)
         thread = threading.Thread(target=solveinthread, args = (lbl, mod.solve))
         thread.start()
-        print('solving in another thread')
-    
 
 def edit(module):
     editor = os.environ.get('EDITOR','vim')
@@ -59,14 +57,7 @@ def view(module):
     top = Toplevel()
     Label(top, text=mod.__doc__).pack()
 
-
-if __name__ == '__main__':
-
-    threadq = queue.Queue(maxsize=0)
-    root = Tk()
-    threadwatcher(root)
-    root.title("Euler's little helper")
-    Label(root,text='Solved Problems').pack()
+def find_euler_files():
     problems_found = glob.glob('p[0-9]*py')
     problems = []
     for p in problems_found:
@@ -75,9 +66,19 @@ if __name__ == '__main__':
             problems.append((prob, p)) # (number,file) 
         except ValueError:
             pass
-    problems = sorted(problems)
+    return sorted(problems)
+
+
+if __name__ == '__main__':
+
+    threadq = queue.Queue(maxsize=0)
+    root = Tk()
+    threadwatcher(root)
+    root.title("Euler's little helper")
+    Label(root,text='Solved Problems').pack()
     rowSize = 5 
     var = StringVar()
+    problems = find_euler_files()
     while problems:
         row, problems = problems[:rowSize], problems[rowSize:]
         f = Frame(root)

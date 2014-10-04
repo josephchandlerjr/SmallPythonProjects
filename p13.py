@@ -4,7 +4,7 @@
 #following one-hundred 50-digit numbers.
 
 
-numbers = """
+numbers = lambda :  """
 37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
 74324986199524741059474233309513058123726617309629
@@ -108,10 +108,10 @@ numbers = """
 """
 
 def solve():
-    global numbers
-    numbers =  map(int,numbers.strip().split('\n'))
+    num = numbers()
+    num =  map(int,num.strip().split('\n'))
 
-    return str(sum(numbers))[:10]
+    return str(sum(num))[:10]
 
 
 if __name__ == '__main__':

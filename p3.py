@@ -11,9 +11,7 @@ from lib.utils import factor, isprime
 
 def solve():
     number = 600851475143 
-
-    if __name__=='__main__':
-        return max(filter(isprime,factor(number)),key=lambda n: 0 if n==number else n) 
+    return max(filter(isprime,factor(number)),key=lambda n: 0 if n==number else n) 
 
 
 if __name__ == '__main__':

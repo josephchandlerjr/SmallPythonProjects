@@ -29,7 +29,7 @@ Find the maximum total from top to bottom of the triangle below:
 """
 
 
-triangle    =             """   75
+tri         = lambda :    """   75
                               95  64
                             17  47  82
                           18  35  87  10
@@ -51,7 +51,7 @@ def children(row,i):
     return ( (row+1,i),(row+1,i+1) ) 
 
 def solve():
-    global triangle
+    triangle = tri()
     triangle = [list(map(int,n.strip().split())) for n in triangle.split('\n')]
     for r in range(len(triangle)-2,-1,-1):
         for i,n in enumerate(triangle[r]):
