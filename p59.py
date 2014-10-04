@@ -15,30 +15,30 @@ def generate(p):
 
 
 
-# download cypher from project euler
-cipher = list(map(lambda x: int(x),urlopen('http://projecteuler.net/project/resources/p059_cipher.txt').readline().decode().rstrip().split(',')))
-# get all possible 3 digit keys consisting on lowercase letters a-z (97-122)
-possible_keys = permutations(range(97,123), 3)
+def solve():
+    # download cypher from project euler
+    cipher = list(map(lambda x: int(x),urlopen('http://projecteuler.net/project/resources/p059_cipher.txt').readline().decode().rstrip().split(',')))
+    # get all possible 3 digit keys consisting on lowercase letters a-z (97-122)
+    possible_keys = permutations(range(97,123), 3)
 
-possible_answers = []
+    possible_answers = []
 
-def decipher():
+    def decipher():
 
-    for key in possible_keys:
-        sum = 0
-        result = ''
-        k = generate(key)
-        for code in cipher:
-            new_ord = code ^ next(k)
-            if new_ord > 126:
-                continue                   # assume ascii encoding 
-            sum += new_ord
-            result += chr(new_ord)
-        if 'Word' in result:
-            return sum
-            return
+        for key in possible_keys:
+            sum = 0
+            result = ''
+            k = generate(key)
+            for code in cipher:
+                new_ord = code ^ next(k)
+                if new_ord > 126:
+                    continue                   # assume ascii encoding 
+                sum += new_ord
+                result += chr(new_ord)
+            if 'Word' in result:
+                return sum
 
-solve = decipher
+    return decipher()
 
 if __name__=='__main__':
     print(solve())
